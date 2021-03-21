@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.akiraito.codechallenge.presentation.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_movie_detail"
+            app:destination="@id/navigation_movie_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.akiraito.codechallenge.presentation.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_movie_detail"
+            app:destination="@id/navigation_movie_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.akiraito.codechallenge.presentation.favorite.FavoriteFragment"
+        android:label="@string/title_favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_movie_detail"
+            app:destination="@id/navigation_movie_detail" />
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_movie_detail"
+        android:name="com.example.akiraito.codechallenge.presentation.detail.MovieDetailFragment"
+        android:label="">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

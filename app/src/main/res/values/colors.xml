@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryWhite">@color/white_smoke</color>
+    <color name="colorAccent">@color/froly</color>
+    <color name="tabsIndicatorColor">#555555</color>
+    <color name="backGroundColor">@color/black</color>
+    <color name="ratingActiveYellow">#F1C232</color>
+    <color name="ratingNormalYellow">@color/gray</color>
+
+
+    <!--  カラー定義  -->
+    <color name="white">#FFFFFF</color>
+    <color name="white_smoke">#F7F7F7</color>
+    <color name="whisper">#E4E4E4</color>
+    <color name="silver">#C6C6C6</color>
+    <color name="black">#333333</color>
+    <color name="gray">#858585</color>
+    <color name="light_gray">#F1F1F1</color>
+    <color name="matterhorn">#555555</color>
+    <color name="froly">#D96E79</color>
+    <color name="blue">#0400FF</color>
+
+    <!-- 背景色 -->
+    <color name="bg_white">@color/white</color>
+    <color name="bg_black">@color/black</color>
+    <color name="bg_gray">@color/white_smoke</color>
+    <color name="bg_button_primary">@color/matterhorn</color>
+
+    <!-- テキスト -->
+    <color name="text_primary">@color/black</color>
+    <color name="text_secondary">@color/gray</color>
+    <color name="text_tertiary">@color/silver</color>
+    <color name="text_button">@color/matterhorn</color>
+    <color name="text_white">@color/white</color>
+    <color name="text_link">@color/blue</color>
+
+    <!--  dialog button color  -->
+    <color name="dialog_button">@color/black</color>
+    <color name="dialog_button_text">@color/froly</color>
+</resources>

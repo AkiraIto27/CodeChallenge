@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_horizontal_movie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/bg_black">
+
+        <ImageView
+            android:id="@+id/image_movie_package"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/content_space_m"
+            android:layout_marginTop="@dimen/content_space_s"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/content_space_s"
+            android:layout_marginEnd="@dimen/content_space_s"
+            android:gravity="center_vertical"
+            android:text="@{title}"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_n"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_info_icon"
+            app:layout_constraintStart_toEndOf="@+id/image_movie_package"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります" />
+
+        <ImageView
+            android:id="@+id/image_info_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/content_space_m"
+            android:src="@drawable/ic_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

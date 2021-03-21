@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 文字サイズ -->
+    <dimen name="text_size_xxs">10sp</dimen>
+    <dimen name="text_size_xs">11sp</dimen>
+    <dimen name="text_size_s">12sp</dimen>
+    <dimen name="text_size_m">14sp</dimen>
+    <dimen name="text_size_n">16sp</dimen>
+
+    <!-- アイテム間の余白 -->
+    <dimen name="content_space_xs">4dp</dimen>
+    <dimen name="content_space_s">8dp</dimen>
+    <dimen name="content_space_xm">12dp</dimen>
+    <dimen name="content_space_m">16dp</dimen>
+    <dimen name="content_space_n">24dp</dimen>
+
+    <!--  アイコンサイズ  -->
+    <dimen name="icon_size">50dp</dimen>
+</resources>

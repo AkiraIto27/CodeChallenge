@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.example.akiraito.codechallenge.presentation.favorite.FavoriteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_favorite_movie"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{vm.shouldDisplayEmptyView ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="3" />
+
+        <TextView
+            android:id="@+id/text_empty_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_space_n"
+            android:gravity="center"
+            android:text="@string/title_favorite"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_n"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_empty_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:gravity="center"
+            android:text="@string/text_empty_state"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_empty_title" />
+
+        <Button
+            android:id="@+id/button_empty_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/content_space_m"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:layout_marginEnd="@dimen/content_space_m"
+            android:background="@color/bg_white"
+            android:gravity="center"
+            android:text="@string/text_empty_button"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_m"
+            android:textStyle="bold"
+            android:onClick="@{() -> vm.onSearchButtonClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_empty_text" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.shouldDisplayEmptyView ? View.VISIBLE : View.GONE}"
+            app:constraint_referenced_ids="text_empty_text,text_empty_title,button_empty_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

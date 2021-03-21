@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.example.akiraito.codechallenge.presentation.search.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundColor">
+
+        <View
+            android:id="@+id/view_search_box"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/content_space_m"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:layout_marginEnd="@dimen/content_space_m"
+            android:background="@drawable/shape_round_corner_16_silver"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/text_fw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/content_space_s"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/content_space_s"
+            android:hint="@string/search_box_hint"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:text="@={vm.fwText}"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/text_size_m"
+            app:layout_constraintBottom_toBottomOf="@+id/view_search_box"
+            app:layout_constraintEnd_toStartOf="@+id/image_search_delete"
+            app:layout_constraintStart_toStartOf="@+id/view_search_box"
+            app:layout_constraintTop_toTopOf="@+id/view_search_box" />
+
+        <ImageView
+            android:id="@+id/image_search_delete"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="9dp"
+            android:onClick="@{() -> vm.onTextClear()}"
+            android:src="@drawable/ic_close_button"
+            android:visibility="@{vm.fwText.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/view_search_box"
+            app:layout_constraintEnd_toEndOf="@+id/view_search_box"
+            app:layout_constraintTop_toTopOf="@+id/view_search_box" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_recommend_movie_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:orientation="vertical"
+            android:visibility="@{vm.fwText.empty ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_search_box" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_search_result"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:visibility="@{vm.fwText.empty ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_search_box"
+            app:spanCount="3" />
+
+        <TextView
+            android:id="@+id/text_empty_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_space_n"
+            android:gravity="center"
+            android:text="@string/title_search_empty_state"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_n"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_search_box" />
+
+        <TextView
+            android:id="@+id/text_empty_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_space_m"
+            android:gravity="center"
+            android:text="@string/text_search_empty_state"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_empty_title" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.shouldDisplayEmptyView ? View.VISIBLE : View.GONE}"
+            app:constraint_referenced_ids="text_empty_text,text_empty_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
